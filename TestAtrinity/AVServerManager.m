@@ -33,6 +33,7 @@
             manager = [[AVServerManager alloc] init];
         });
     }
+    
     return manager;
 }
 
