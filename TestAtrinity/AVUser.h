@@ -18,5 +18,5 @@
 @property (strong, nonatomic) NSString  *filter; 
 
 - (id)init;
-
+ 
 @end
