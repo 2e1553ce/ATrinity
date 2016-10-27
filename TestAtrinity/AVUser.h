@@ -15,7 +15,7 @@
 @property (strong, nonatomic) NSString  *password;
 @property (assign, nonatomic) NSString  *objectCode;
 @property (strong, nonatomic) NSString  *action;
-@property (strong, nonatomic) NSString  *filter;
+@property (strong, nonatomic) NSString  *filter; 
 
 - (id)init;
 
