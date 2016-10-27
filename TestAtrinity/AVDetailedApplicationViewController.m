@@ -133,10 +133,10 @@
         AVDetailedWithTextView *cell = [tableView dequeueReusableCellWithIdentifier:cellIdetifierText];
         
         if(indexPath.row == 2){
-            cell.descriptionTextView.text = [NSString stringWithFormat:@"Описание: %@", self.application.detailedDescription];
+            cell.descriptionTextView.text = [NSString stringWithFormat:@"Описание: \n%@", self.application.detailedDescription];
             cell.descriptionTextView.editable = NO;
         } else {
-            cell.descriptionTextView.text = [NSString stringWithFormat:@"Решение: %@", self.application.detailedSolutionDescription];
+            cell.descriptionTextView.text = [NSString stringWithFormat:@"Решение: \n%@", self.application.detailedSolutionDescription];
         }
         
         return cell;
@@ -179,7 +179,7 @@
         CGFloat height = [AVDetailedWithTextView heightForText:text];
         
         if(height < 44)
-            return 44;
+            return 48;
         
         return height;
         
@@ -190,13 +190,13 @@
         CGFloat height = [AVDetailedWithTextView heightForText:text];
         
         if(height < 44)
-            return 44;
+            return 48;
     
         return height;
         
     } else if(indexPath.row == 4){
         
-        return 58.f;
+        return 77.f;
     } else {
         
         return 44.f;
