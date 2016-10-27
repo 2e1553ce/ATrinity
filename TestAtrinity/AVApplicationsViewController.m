@@ -68,7 +68,22 @@
         
                                                     }
                                                     onFailure:^(NSError *error, NSInteger statusCode) {
+                                                        
                                                         NSLog(@"Error = %@, code = %ld", [error localizedDescription], statusCode);
+                                                        [self.indicator stopAnimating];
+                                                        [[UIApplication sharedApplication] endIgnoringInteractionEvents];
+                                                        
+                                                        if(statusCode == 408){
+                                                         
+                                                            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Время истекло" message:@"Нет ответа от сервера" preferredStyle:UIAlertControllerStyleAlert];
+                                                            UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"Ок" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+                                                                //enter code here
+                                                            }];
+                                                            [alert addAction:defaultAction];
+                                                            //Present action where needed
+                                                            [self presentViewController:alert animated:YES completion:nil];
+                                                            
+                                                        }
                                                     }
     ];
 

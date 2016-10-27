@@ -45,6 +45,7 @@
         
         NSURL *baseURL = [NSURL URLWithString:@"http://mobile.atrinity.ru/api/"];
         self.sessionManager = [[AFHTTPSessionManager alloc] initWithBaseURL:baseURL];
+        [self.sessionManager.requestSerializer setTimeoutInterval:10];
         self.currentUser = [[AVUser alloc] init];
     }
     
@@ -86,6 +87,7 @@
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
         NSLog(@"\n%@", [error description]);
+        failure(error, 408);
     }];
 
 }
@@ -125,6 +127,7 @@
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
         NSLog(@"\n%@", [error description]);
+        failure(error, 408);
     }];
 
 }
